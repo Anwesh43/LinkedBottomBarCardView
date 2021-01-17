@@ -36,7 +36,7 @@ fun Float.sinify() : Float = Math.sin(this * Math.PI).toFloat()
 fun Canvas.drawBottomBarCard(scale : Float, w : Float, h : Float, paint : Paint) {
     val sf : Float = scale.sinify()
     val size : Float = Math.min(w, h) / sizeFactor
-    val barSize : Float = size / barSizeFactor
+    val barSize : Float = Math.min(w, h) / barSizeFactor
     save()
     translate(w / 2, h / 2)
     for (j in 0..(parts - 1)) {
