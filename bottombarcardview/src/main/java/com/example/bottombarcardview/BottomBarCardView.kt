@@ -184,4 +184,27 @@ class BottomBarCardView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BottomBarCardView) {
+
+        private val animator : Animator = Animator(view)
+        private val bbc : BottomBarCard = BottomBarCard(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            bbc.draw(canvas, paint)
+            animator.animate {
+                bbc.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bbc.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
