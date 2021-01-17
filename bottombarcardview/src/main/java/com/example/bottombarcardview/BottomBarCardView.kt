@@ -23,3 +23,8 @@ val colors : Array<Int> = arrayOf(
 val barSizeFactor : Float = 9.2f
 val rot : Float = 90f
 val lines : Int = 4
+
+fun Int.inverse() : Float = 1f / this
+fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
+fun Float.divideScale(i : Int, n : Int) : Float = Math.min(n.inverse(), maxScale(i, n)) * n
+fun Float.sinify() : Float = Math.sin(this * Math.PI).toFloat()
