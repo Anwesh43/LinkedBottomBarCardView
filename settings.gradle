@@ -1,0 +1,3 @@
+include ':bottombarcardview'
+include ':app'
+rootProject.name = "LinkedBottomBarCardView"
