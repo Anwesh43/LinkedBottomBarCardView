@@ -209,4 +209,13 @@ class BottomBarCardView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : BottomBarCardView {
+            val view : BottomBarCardView = BottomBarCardView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
